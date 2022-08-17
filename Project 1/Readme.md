@@ -1,6 +1,6 @@
 It is a database for an online musical instruments store. Please create your own copy of it on your MySQL server, to which you will have full rights:
 
-First, please download “Database_assignment.sql”.
+First, please download “Database.sql”.
 
 Create a new database and give it a name.
 
