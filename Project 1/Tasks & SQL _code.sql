@@ -1,4 +1,4 @@
-#### Question 1 ####
+#### Task 1 ####
 
 ## Please fetch these columns from the "products" table:
 ##
@@ -19,7 +19,7 @@ ORDER BY
 	date_added DESC;
 
 
-#### Question 2 ####
+#### Task 2 ####
 
 ## Please fetch these column and data from the "order_items" table:
 ##
@@ -51,7 +51,7 @@ ORDER BY
 	item_total DESC;
 
 
-#### Question 3 ####
+#### Task 3 ####
 
 ## Please write a query that inner joins the "categories" table to the "products" table and returns these columns:
 ##
@@ -70,7 +70,7 @@ ORDER BY
 	product_name;
 
 
-#### Question 4 ####
+#### Task 4 ####
 
 ## Please write a query to identify the products in the "products" table that have the same list price.
 ## The query should return their "product_id", "product_name" and "list_price" in the result set.
@@ -84,10 +84,10 @@ FROM
 WHERE 
 	T1.list_price = T2.list_price 
     AND 
-    T1.product_id!=T2.product_id;
+    	T1.product_id!=T2.product_id;
 
 
-#### Question 5 ####
+#### Task 5 ####
 
 ## Please identify the categories in the "categories" table that do not match any product in the "products" table.
 ## Your query should return their "category_name" in the result set.
@@ -109,9 +109,9 @@ FROM
 	categories
 WHERE 
 	category_id NOT IN (SELECT DISTINCT
-							category_id
-						FROM
-							products);
+				        category_id
+			    FROM
+					products);
                             
 ##3. NOT EXISTS
 SELECT 
@@ -120,15 +120,15 @@ FROM
 	categories AS T1
 WHERE 
 	NOT EXISTS (SELECT 
-					*
-				FROM 
-					products AS T2
-				WHERE 
-					T2.category_id = T1.category_id);
+			  *
+		     FROM 
+			   products AS T2
+		     WHERE 
+			   T2.category_id = T1.category_id);
 
 
 
-#### Question 6 ####
+#### Task 6 ####
 
 ## Please return one row for each category that has products, and each row returned should contain the following values:
 ##
@@ -148,7 +148,7 @@ ORDER BY
 	COUNT(product_name) DESC;
 
 
-#### Question 7 ####
+#### Task 7 ####
 
 ## Please identify the products whose list price is greater than the average list price for all products.
 ## Return the "product_name" and "list_price" columns for each product satisfying the given criteria.
@@ -160,14 +160,14 @@ FROM
 	products
 WHERE 
 	list_price > (SELECT 
-					AVG(list_price)
-				  FROM 
-					products)
+				AVG(list_price)
+		       FROM 
+				products)
 ORDER BY 
 	list_price DESC;
 
 
-#### Question 8 ####
+#### Task 8 ####
 
 ## Please return the product name and discount percent of each product that has a unique discount percent.
 ## In other words, don’t include products that have the same discount percent as another product.
@@ -178,16 +178,18 @@ SELECT
 FROM 
 	products
 WHERE 
-	discount_percent IN (    SELECT 
-								discount_percent
-							 FROM
-								products
-							 GROUP BY 
-								discount_percent
-							 HAVING 
-								COUNT(*)=1)
+	discount_percent IN ( SELECT 
+					discount_percent
+			      FROM
+					 products
+			      GROUP BY 
+					 discount_percent
+			      HAVING 
+					 COUNT(*)=1)
 ORDER BY 
 	product_name;
+
+
 
 
 
