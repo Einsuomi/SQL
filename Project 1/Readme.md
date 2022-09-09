@@ -8,5 +8,5 @@ Open “Database_assignment.sql” and execute it to add the tables to the datab
 
 Also check the "ER_Diagram.pdf" to find the relationships of all tables.
 
-There are 8 tasks to complete in "Tasks & SQL_code.sql". 
+There are 8 tasks to complete in "Tasks & SQL_code.sql" including Querying Data, Filtering Data, Sorting Data, Summarizing Data, Grouping Data, Joining Tables, Subquery.
 
